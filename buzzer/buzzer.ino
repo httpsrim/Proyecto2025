@@ -43,7 +43,7 @@ void setup() {
 }
 
 void loop() {
-  for(int i = 0; i < 6; i++){
+  for(int i = 0; i < 6; i++){ //dungulge dungulge --> 6 notads
     if (duracion[i] == SILENCE) {
       noTone(buzzer);
       delay(duracion[i]);
