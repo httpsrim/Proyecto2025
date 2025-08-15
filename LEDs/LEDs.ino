@@ -5,7 +5,6 @@
   using namespace std;
 
 Adafruit_NeoPixel pixels(NUMPIXELS, PIN, NEO_GRB + NEO_KHZ800);
-bool primeraVez = true;
 
 void setup() {
   Serial.begin(9600);

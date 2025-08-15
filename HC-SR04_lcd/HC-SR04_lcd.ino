@@ -1,9 +1,8 @@
-//------------------------ Servo ------------------------
-#include <Servo.h>
 
-Servo servo;
+//------------------------ LCD ------------------------
 
-int pos = 0;
+#include <LiquidCrystal_I2C.h>
+LiquidCrystal_I2C lcd(0x27,20,4); 
 
 //----------------------- HC-SR04 ----------------------- 
 const int EchoPin = 5;
@@ -14,22 +13,20 @@ void setup() {
   pinMode(TriggerPin, OUTPUT);
   pinMode(EchoPin, INPUT);
 
-  servo.attach(3);
+  //inicializamos LCD
+  lcd.init();
+  //Ponemos un mensaje en la LCD:
+  lcd.backlight();
 }
 
 void loop() {
   int cm = ping(TriggerPin, EchoPin);
 
-  while(cm < 20){
-    servo.write(pos);
-    pos++;
-    if(pos == 180) pos = 0;
-    delay(15);
-    cm = ping(TriggerPin,EchoPin);
-    Serial.print("Distancia: ");
-    Serial.println(cm);
-  }
-  
+  lcd.setCursor(0,0);
+  lcd.print("Distancia: ");
+  lcd.print(cm);
+  delay(1000);
+  lcd.clear();
 }
 
 //------------ Funcion que calcula distancia ------------ 
