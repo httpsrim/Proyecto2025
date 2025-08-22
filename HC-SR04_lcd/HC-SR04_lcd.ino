@@ -21,7 +21,7 @@ void setup() {
 
 void loop() {
   int cm = ping(TriggerPin, EchoPin);
-
+  Serial.println("hello");
   lcd.setCursor(0,0);
   lcd.print("Distancia: ");
   lcd.print(cm);

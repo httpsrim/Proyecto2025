@@ -14,7 +14,7 @@ LiquidCrystal_I2C lcd(0x27,20,4);
 #define EIGHTH 150
 #define SILENCE 1000
 //Pin de buzzer
-int buzzer = 9;
+int buzzer = 11;
 int numNotas = 26;
 //Notas
 int notas[]={

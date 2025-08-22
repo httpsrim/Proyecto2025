@@ -84,6 +84,7 @@ void setup() {
 
 void loop() {
   int cm = ping(TriggerPin, EchoPin);
+  Serial.println(cm);
   while(cm < 20){
      bool actual1, actual2, actual3;
     actual1 = digitalRead(PIN_BOTON1);
@@ -112,7 +113,11 @@ void loop() {
     anterior2 = actual2;
     anterior3 = actual3;
     }
+    cm = ping(TriggerPin, EchoPin);
+  Serial.println(cm);
   }
+  cm = ping(TriggerPin, EchoPin);
+  Serial.println(cm);
 }
 
 //------------ Funcion que calcula distancia ------------ 
